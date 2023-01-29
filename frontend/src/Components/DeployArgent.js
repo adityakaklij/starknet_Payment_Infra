@@ -2,9 +2,10 @@
 import React , {useState} from 'react'
 import { connect } from "@argent/get-starknet"
 import {Account,Provider,defaultProvider,ec,json,SequencerProvider,Contract,stark,number,  shortString} from  "starknet";
+import { contractABI } from '../Constants.js/ABI';
 
 
-function Deploy() {
+function DeployArgent() {
 
   const [isConnect,setIsConnected] = useState("Connect")
   const [Address, setAddress] = useState()
@@ -49,6 +50,19 @@ function Deploy() {
 
   }
 
+  async function getDetails() {
+    
+    const contractAddress = "0x00c0258244a530731964ad09a2b1b5b90ba119d6e90d6a931f15c6d35a1b5954"; // test2 contract 
+    const contractInstance = new Contract (contractABI ,contractAddress,  provider)
+    // const getTx = await provider.getTransaction("0x23352cc9291d60fb55462cfd4c0cc20fd3e0ab9d001b69600d1c0d90d8aa0b8") 
+    const getTx = await provider.getContractAddresses("0x23352cc9291d60fb55462cfd4c0cc20fd3e0ab9d001b69600d1c0d90d8aa0b8") 
+    console.log("getTx",getTx.contract_address);
+    console.log("getTx",getTx.calldata);
+
+
+
+  }
+
 
   return (
     <div>
@@ -58,6 +72,9 @@ function Deploy() {
         <br /><hr />
         <button onClick={deployContract}>Deploy</button>
 
+        <br /><hr />
+        <button onClick={getDetails}>getDetails</button>
+
         <hr /><br />
 
 
@@ -65,4 +82,4 @@ function Deploy() {
   )
 }
 
-export default Deploy
+export default DeployArgent

@@ -5,6 +5,7 @@ import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Deploy from './Components/Deploy';
 import Analytics from './Components/Analytics';
+import DeployArgent from './Components/DeployArgent';
 
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
 
           <Route exact path="/Analytics">
             <Analytics/>
+          </Route>
+
+          <Route exact path="/DeployArgent">
+            <DeployArgent/>
           </Route>
 
 

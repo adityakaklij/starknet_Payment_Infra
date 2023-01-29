@@ -51,6 +51,9 @@ export default function Navbar() {
                     <li className="nav-item">
                         <a className="nav-link" href="#/Analytics">Analytics</a>
                     </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#/DeployArgent">DeployArgent</a>
+                    </li>
 
              
                         
